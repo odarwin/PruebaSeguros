@@ -1,0 +1,55 @@
+﻿@model ProjectChubb.Models.Persona
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editor clientes</h1>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <form asp-action="EditPerson" method="post">
+                <input type="hidden"  asp-for="IdPersona"/>
+                <div asp-validation-summary="ModelOnly" class="text-danger" > </div>
+
+                <div class="form-group">
+                    <label asp-for="NombrePersona" class="control-label">Nombre:</label>
+                    <input asp-for="NombrePersona" class="form-control" />
+                    <span asp-validation-for="NombrePersona" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ApellidoPersona" class="control-label">Apellido:</label>
+                    <input asp-for="ApellidoPersona" class="form-control" />
+                    <span asp-validation-for="ApellidoPersona" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CedulaPersona" class="control-label">Cedula:</label>
+                    <input asp-for="CedulaPersona" class="form-control" />
+                    <span asp-validation-for="CedulaPersona" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="TelefonoPersona" class="control-label">Telefono:</label>
+                    <input asp-for="TelefonoPersona" class="form-control" />
+                    <span asp-validation-for="TelefonoPersona" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstadoPersona" class="control-label">Estado:</label>
+                    <input asp-for="EstadoPersona" class="form-control" />
+                    <span asp-validation-for="EstadoPersona" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary"  value="Guardar Cambios" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial.cshtml"/> }
+}

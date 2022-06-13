@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Darwin\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Darwin\\.nuget\\packages"
+    ]
+  }
+}

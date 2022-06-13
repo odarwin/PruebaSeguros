@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjectChubb.Models.Seguro>
+
+@{
+    ViewData["Title"] = "Seguros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Mantenimiento de Seguros</h1>
+
+<div class="container">
+    @if (TempData["mensaje"] != null)
+    {
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" date-dismiss="alert" arial-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-3">
+            <a class="btn btn-success d-block" asp-action="CreateSeguro" asp-controller="Seguro">Crear Seguro</a>
+
+        </div>
+    </div>
+    <div class="row col-md-12">
+
+        @if (Model.Count() > 0)
+        {
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td @Html.DisplayNameFor(m => m.IdSeguro) style="display:none;"><h4>Id Seguro</h4></td>
+                        <td @Html.DisplayNameFor(m => m.NombreSeguro)><h4>Nombre Seguro</h4></td>
+                        <td @Html.DisplayNameFor(m => m.CodigoSeguro)><h4>Codigo</h4></td>
+                        <td @Html.DisplayNameFor(m => m.ValorSeguro)><h4>Valor Seguro</h4></td>
+                        <td @Html.DisplayNameFor(m => m.Prima)><h4>Valor Prima</h4></td>
+                        <td @Html.DisplayNameFor(m => m.FechaCreacionSeguro)><h4>Fecha Creacion</h4></td>
+                        <td @Html.DisplayNameFor(m => m.RangoEdadSeguro)><h4>Rango Edad</h4></td>
+                        <td @Html.DisplayNameFor(m => m.PorcentajeSeguro)><h4>%</h4></td>
+                        <td @Html.DisplayNameFor(m => m.EstadoSeguro)><h4>Estado</h4></td>
+                        <td>Acciones</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {s
+                        <tr>
+                            <td style="display:none;">@item.IdSeguro</td>
+                            <td>@item.NombreSeguro</td>
+                            <td>@item.CodigoSeguro</td>
+                            <td>@item.ValorSeguro</td>
+                            <td>@item.Prima</td>
+                            <td>@item.FechaCreacionSeguro</td>
+                            <td>@item.RangoEdadSeguro</td>
+                            <td>@item.PorcentajeSeguro</td>
+                            <td>@item.EstadoSeguro</td>
+
+                            <td>
+                                <a asp-controller="Seguro" asp-action="EditSeguro" asp-route-id="@item.IdSeguro" class="btn btn-warning">Editar</a>
+                                <a asp-controller="Seguro" asp-action="DeleteSeguro" asp-route-id="@item.IdSeguro" class="btn btn-danger">Eliminar</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>No existen registros</p>
+        }
+
+    </div>
+
+
+</div>
